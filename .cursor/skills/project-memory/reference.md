@@ -3,10 +3,10 @@
 ## File map (consumer project)
 
 ```text
-.memory/                 # git-track recommended
+.memory/                 # recommend git-tracking
   CHARTER.md?            # optional 章程
   KNOWLEDGE.md           # 知识（只追加）
-  TASK_INDEX.md          # 任务目录（注入用）
+  TASK_INDEX.md          # 任务目录（注入/开场用）
   TASK_LOG.md            # 任务详情日志
 task_plan.md             # current task-plan (or under .planning/<slug>/)
 findings.md
@@ -18,21 +18,24 @@ progress.md
 
 ## Token policy
 
-- sessionStart: CHARTER one-liner + TASK_INDEX recent rows + task_plan head (~40 lines)
-- Never inject full KNOWLEDGE.md or full TASK_LOG.md
-- Read LOG/KNOWLEDGE on demand by anchor or search
+- sessionStart / 开场: CHARTER 一句 + TASK_INDEX 近况 + task_plan 头部  
+- Never inject full KNOWLEDGE.md or full TASK_LOG.md  
+- Read LOG/KNOWLEDGE on demand by anchor or search  
 
-## Upstream relationship
+## Host support
 
-Soft fork of planning-with-files (PWF) **execution layout** (`task_plan` / `findings` / `progress`, phase statuses).  
-Differentiator: always-on project memory, capture, INDEX+LOG, `/task-plan` only (no `/plan`).
-
-Syncing upstream PWF is **manual / semi-automatic** (fork sync + resolve conflicts). Memory layer is maintained here.
+| | 说明 |
+|--|------|
+| 任意 Agent Skills 宿主 | 加载 `skills/project-memory`，执行 scripts |
+| Cursor | 可选 hooks + `/task-plan` `/charter`（本仓库 `.cursor/`） |
+| 其它 IDE | 不强制专用插件；能跑 skill 即可 |
 
 ## Env vars
 
 | Variable | Meaning |
 |----------|---------|
-| `PM_PLAN_ROOT` / `PWF_PLAN_ROOT` | Absolute project root for plans/memory |
+| `PM_PLAN_ROOT` | Absolute project root for plans/memory |
 | `PLAN_ID` | Active slug under `.planning/` |
 | `PM_SKILL_DIR` | Override skill install path |
+
+`PWF_PLAN_ROOT` 若存在可作 `PM_PLAN_ROOT` 的别名（兼容旧环境变量名），不要求安装其它规划技能。
