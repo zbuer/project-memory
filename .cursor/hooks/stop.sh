@@ -7,8 +7,8 @@ cd "$ROOT" 2>/dev/null || true
 
 SKILL=""
 for c in \
-  "$ROOT/.cursor/skills/project-memory" \
-  "$HOME/.cursor/skills/project-memory"
+  "$ROOT/.cursor/skills/planning-with-memory" \
+  "$HOME/.cursor/skills/planning-with-memory"
 do
   if [[ -f "$c/scripts/check-complete.sh" ]]; then
     SKILL="$c"

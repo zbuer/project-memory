@@ -1,4 +1,4 @@
-# project-memory reference
+# planning-with-memory reference
 
 ## File map (consumer project)
 
@@ -26,7 +26,7 @@ progress.md
 
 | | 说明 |
 |--|------|
-| 任意 Agent Skills 宿主 | 加载 `skills/project-memory`，执行 scripts |
+| 任意 Agent Skills 宿主 | 加载 `skills/planning-with-memory`，执行 scripts |
 | Cursor | 可选 hooks + `/task-plan` `/charter`（本仓库 `.cursor/`） |
 | 其它 IDE | 不强制专用插件；能跑 skill 即可 |
 

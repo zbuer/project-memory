@@ -31,7 +31,7 @@ MEM="$ROOT/.memory"
 DATE="$(date +%Y-%m-%d)"
 
 if [[ ! -f "$PLAN" ]]; then
-  echo "[project-memory] no task_plan.md to complete" >&2
+  echo "[planning-with-memory] no task_plan.md to complete" >&2
   exit 1
 fi
 
@@ -51,7 +51,7 @@ REL_PLAN="${PLAN#"$ROOT"/}"
 
 # Index row (skip if same date+title already present)
 if grep -q "| $DATE | .* | $TITLE |" "$MEM/TASK_INDEX.md" 2>/dev/null; then
-  echo "[project-memory] index already has this title for $DATE — updating log only skipped if duplicate"
+  echo "[planning-with-memory] index already has this title for $DATE — updating log only skipped if duplicate"
 else
   # Remove template example row if still present
   if grep -q '_(example — delete when real entries exist)_' "$MEM/TASK_INDEX.md"; then
@@ -73,5 +73,5 @@ fi
   echo ""
 } >> "$MEM/TASK_LOG.md"
 
-echo "[project-memory] logged to TASK_INDEX.md and TASK_LOG.md (#$ANCHOR)"
-echo "[project-memory] Capture durable findings into .memory/KNOWLEDGE.md before overwriting the task-plan."
+echo "[planning-with-memory] logged to TASK_INDEX.md and TASK_LOG.md (#$ANCHOR)"
+echo "[planning-with-memory] Capture durable findings into .memory/KNOWLEDGE.md before overwriting the task-plan."

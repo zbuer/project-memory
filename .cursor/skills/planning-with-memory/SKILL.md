@@ -1,5 +1,5 @@
 ---
-name: project-memory
+name: planning-with-memory
 description: >-
   项目记忆 + 任务规划（task-plan）。维护 .memory/ 知识库与任务索引/日志；
   用 task_plan.md、findings.md、progress.md 跟踪多步骤与长任务。
@@ -8,7 +8,7 @@ description: >-
   在 Cursor 中不是 Plan 模式，勿用 /plan 作为本技能入口。
 ---
 
-# project-memory
+# planning-with-memory
 
 给任意 coding agent 用的技能：**把项目级记忆和当前任务规划写在磁盘上**，跨会话可恢复。
 

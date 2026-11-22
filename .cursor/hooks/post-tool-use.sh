@@ -5,12 +5,12 @@ set -euo pipefail
 ROOT="${CURSOR_PROJECT_DIR:-$(pwd)}"
 MSG=""
 if [[ -f "$ROOT/task_plan.md" ]] || [[ -f "$ROOT/.planning/.active_plan" ]]; then
-  MSG+="[project-memory] 若推进了任务：更新 task_plan.md 阶段状态；重要结论沉淀到 .memory/KNOWLEDGE.md。"
+  MSG+="[planning-with-memory] 若推进了任务：更新 task_plan.md 阶段状态；重要结论沉淀到 .memory/KNOWLEDGE.md。"
 fi
 if [[ -d "$ROOT/.memory" ]]; then
   :
 else
-  MSG+="[project-memory] 建议确保 .memory/ 存在（ensure-memory.sh）。"
+  MSG+="[planning-with-memory] 建议确保 .memory/ 存在（ensure-memory.sh）。"
 fi
 
 if [[ -z "$MSG" ]]; then

@@ -40,7 +40,7 @@ done
 PLAN_DIR="$ROOT"
 if [[ -n "$SLUG" ]]; then
   if [[ ! "$SLUG" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]]; then
-    echo "[project-memory] invalid --slug" >&2
+    echo "[planning-with-memory] invalid --slug" >&2
     exit 1
   fi
   # Prefer dated slug if user passed bare name without date
@@ -55,7 +55,7 @@ fi
 install_file() {
   local src="$1" dest="$2"
   if [[ -f "$dest" && "$FORCE" -ne 1 ]]; then
-    echo "[project-memory] keep existing $(basename "$dest") (use --force to overwrite)"
+    echo "[planning-with-memory] keep existing $(basename "$dest") (use --force to overwrite)"
     return
   fi
   cp "$src" "$dest"
@@ -64,7 +64,7 @@ install_file() {
     sed -i '' "s/\[Brief Description\]/$TITLE/" "$dest" 2>/dev/null \
       || sed -i "s/\[Brief Description\]/$TITLE/" "$dest"
   fi
-  echo "[project-memory] wrote $dest"
+  echo "[planning-with-memory] wrote $dest"
 }
 
 install_file "$TPL/task_plan.md" "$PLAN_DIR/task_plan.md"
@@ -72,9 +72,9 @@ install_file "$TPL/findings.md" "$PLAN_DIR/findings.md"
 install_file "$TPL/progress.md" "$PLAN_DIR/progress.md"
 
 if [[ -n "$SLUG" ]]; then
-  echo "[project-memory] PLAN_ID=$SLUG"
-  echo "[project-memory] plan dir=$PLAN_DIR"
+  echo "[planning-with-memory] PLAN_ID=$SLUG"
+  echo "[planning-with-memory] plan dir=$PLAN_DIR"
 else
-  echo "[project-memory] plan dir=$PLAN_DIR (root task-plan)"
+  echo "[planning-with-memory] plan dir=$PLAN_DIR (root task-plan)"
 fi
-echo "[project-memory] Reminder: /task-plan is NOT Cursor Plan mode."
+echo "[planning-with-memory] Reminder: /task-plan is NOT Cursor Plan mode."

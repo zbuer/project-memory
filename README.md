@@ -1,4 +1,4 @@
-# project-memory
+# planning-with-memory
 
 **项目记忆 + 任务规划（task-plan）**：让 AI coding agent 把「这个项目是干什么的、学到了什么、做过哪些事、当前做到哪」写在磁盘上，跨会话还能接着干——而不是指望聊天窗口自己记住。
 
@@ -38,7 +38,7 @@
 ## 典型用法
 
 1. **装上本 skill**（见下）。  
-2. 需要时说「按 project-memory 建章程 / 任务规划」，或使用宿主支持的 **`/task-plan`**、**`/charter`**（Cursor 已附带这两个命令文件）。  
+2. 需要时说「按 planning-with-memory 建章程 / 任务规划」，或使用宿主支持的 **`/task-plan`**、**`/charter`**（Cursor 已附带这两个命令文件）。  
 3. 干活时更新 `task_plan.md` 阶段状态；可复用的结论 **沉淀** 进 `KNOWLEDGE.md`。  
 4. 这一板结束后运行 `complete-task-plan.sh`（写入 INDEX + LOG），再开下一板。
 
@@ -57,18 +57,18 @@
 
 ### 通用（推荐心智）
 
-把 `skills/project-memory/` 装到你的 Agent 能发现的 skills 目录（例如用户级 `~/.agents/skills/`，或项目内约定路径），保证其中的 `scripts/*.sh` 可执行。然后在对话里引用本 skill，或让 Agent 按 `SKILL.md` 执行。
+把 `skills/planning-with-memory/` 装到你的 Agent 能发现的 skills 目录（例如用户级 `~/.agents/skills/`，或项目内约定路径），保证其中的 `scripts/*.sh` 可执行。然后在对话里引用本 skill，或让 Agent 按 `SKILL.md` 执行。
 
 ```bash
 git clone https://github.com/zbuer/project-memory.git
-# 按你使用的 Agent 文档，把 skills/project-memory 链到或复制到 skills 搜索路径
-chmod +x skills/project-memory/scripts/*.sh
+# 按你使用的 Agent 文档，把 skills/planning-with-memory 链到或复制到 skills 搜索路径
+chmod +x skills/planning-with-memory/scripts/*.sh
 ```
 
 也可用（若你环境支持）：
 
 ```bash
-npx skills add zbuer/project-memory --skill project-memory
+npx skills add zbuer/project-memory --skill planning-with-memory
 ```
 
 ### Cursor（附带 hooks，可选）
@@ -80,12 +80,12 @@ REPO=https://github.com/zbuer/project-memory.git
 git clone "$REPO" /tmp/project-memory
 
 mkdir -p .cursor/skills .cursor/hooks .cursor/commands
-cp -R /tmp/project-memory/skills/project-memory .cursor/skills/
+cp -R /tmp/project-memory/skills/planning-with-memory .cursor/skills/
 cp -R /tmp/project-memory/.cursor/hooks/. .cursor/hooks/
 cp /tmp/project-memory/.cursor/commands/*.md .cursor/commands/
 # 仅当还没有自己的 hooks.json 时：
 cp /tmp/project-memory/.cursor/hooks.json .cursor/hooks.json
-chmod +x .cursor/hooks/*.sh .cursor/skills/project-memory/scripts/*.sh
+chmod +x .cursor/hooks/*.sh .cursor/skills/planning-with-memory/scripts/*.sh
 ```
 
 若已有 `hooks.json`，合并其中的 `sessionStart` / `preToolUse` / `postToolUse` / `stop` 即可。  
@@ -119,6 +119,6 @@ MIT。致谢 planning-with-files 与「Markdown 作磁盘工作记忆」一类�
 
 ## 文档
 
-- [skills/project-memory/SKILL.md](skills/project-memory/SKILL.md) — 给 Agent 的完整说明  
+- [skills/planning-with-memory/SKILL.md](skills/planning-with-memory/SKILL.md) — 给 Agent 的完整说明  
 - [docs/design.md](docs/design.md) — 设计定稿  
-- [skills/project-memory/reference.md](skills/project-memory/reference.md) — 文件与环境变量  
+- [skills/planning-with-memory/reference.md](skills/planning-with-memory/reference.md) — 文件与环境变量  

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Inject compact project-memory context at session start (Cursor additional_context).
+# Inject compact planning-with-memory context at session start (Cursor additional_context).
 set -euo pipefail
 
 ROOT="${CURSOR_PROJECT_DIR:-${PM_PLAN_ROOT:-$(pwd)}}"
@@ -7,8 +7,8 @@ cd "$ROOT" 2>/dev/null || true
 
 SKILL=""
 for c in \
-  "$ROOT/.cursor/skills/project-memory" \
-  "$HOME/.cursor/skills/project-memory"
+  "$ROOT/.cursor/skills/planning-with-memory" \
+  "$HOME/.cursor/skills/planning-with-memory"
 do
   if [[ -f "$c/scripts/ensure-memory.sh" ]]; then
     SKILL="$c"
@@ -26,7 +26,7 @@ if [[ -n "$SKILL" ]]; then
   PLAN_DIR="$(bash "$SKILL/scripts/resolve-plan-dir.sh" 2>/dev/null || echo "$ROOT")"
 fi
 
-CONTEXT="[project-memory] 任务规划(task-plan)≠Cursor Plan模式。开场只注入浓缩状态；知识详情按需读取。
+CONTEXT="[planning-with-memory] 任务规划(task-plan)≠Cursor Plan模式。开场只注入浓缩状态；知识详情按需读取。
 "
 
 if [[ -f "$MEM/CHARTER.md" ]]; then

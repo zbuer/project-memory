@@ -22,7 +22,7 @@ copy_if_missing() {
   local name="$1"
   if [[ ! -f "$MEM/$name" ]]; then
     cp "$TPL/$name" "$MEM/$name"
-    echo "[project-memory] created .memory/$name"
+    echo "[planning-with-memory] created .memory/$name"
   fi
 }
 
@@ -34,4 +34,4 @@ if [[ "$WITH_CHARTER" -eq 1 ]]; then
   copy_if_missing "CHARTER.md"
 fi
 
-echo "[project-memory] memory ready at $MEM"
+echo "[planning-with-memory] memory ready at $MEM"

@@ -2,7 +2,7 @@
 description: 创建或补全项目章程（.memory/CHARTER.md）。可选，不阻塞任务规划。
 ---
 
-按 **project-memory** 处理章程：
+按 **planning-with-memory** 处理章程：
 
 1. 运行 skill 内 `scripts/ensure-memory.sh --with-charter`（确保 `.memory/` 与 `CHARTER.md` 模板存在）。  
 2. **新项目**：根据用户描述的目的、范围、硬约束、非目标填写章程；缺信息则先问清楚再写。  

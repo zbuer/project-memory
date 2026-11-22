@@ -9,12 +9,12 @@ cd "$ROOT"
 if [[ -n "${PLAN_ID:-}" ]]; then
   # slug only; reject path traversal
   if [[ ! "$PLAN_ID" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]]; then
-    echo "[project-memory] invalid PLAN_ID" >&2
+    echo "[planning-with-memory] invalid PLAN_ID" >&2
     exit 1
   fi
   DIR="$ROOT/.planning/$PLAN_ID"
   if [[ ! -d "$DIR" ]]; then
-    echo "[project-memory] PLAN_ID not found: $PLAN_ID" >&2
+    echo "[planning-with-memory] PLAN_ID not found: $PLAN_ID" >&2
     exit 1
   fi
   echo "$DIR"
