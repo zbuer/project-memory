@@ -1,0 +1,7 @@
+.DS_Store
+*.swp
+*.tmp
+node_modules/
+
+# Consumer project working files (when developing this repo itself, keep templates only)
+# End users typically gitignore their own task_plan.md trio in *their* projects.
